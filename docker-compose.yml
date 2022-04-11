@@ -1,0 +1,26 @@
+version: '3.5'
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./app/:/app
+    ports:
+      - "8080:8080"
+    environment:
+      TZ: "Asia/Taipei"
+    restart: always
+    # networks:
+    # - app_net
+
+  # ffmpeg:
+  #   container_name: ffmpeg
+  #   image: jrottenberg/ffmpeg
+    # networks:
+    #   - app_net
+
+# networks:
+#   app_net:
+#     external:
+#       name: web_service
